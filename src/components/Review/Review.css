@@ -1,0 +1,25 @@
+.review {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.top-section {
+  display: flex;
+  align-items: center;
+}
+
+.score {
+  border-radius: 10px;
+  background-color: blue;
+  color: #fff;
+  height: 28px;
+  width: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.headline {
+  font-weight: bold;
+}

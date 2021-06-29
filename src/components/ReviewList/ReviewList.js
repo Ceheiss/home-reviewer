@@ -9,11 +9,10 @@ export const ReviewList = ({ reviews, fetchReviews }) => {
   }, []);
 
   return (
-    <div>
-      {reviews.map((review, i) => {
-        return <div key={i}>{review.headline}</div>;
-      })}
-      <Review />
+    <div className="review-list">
+      {reviews.map((review) => (
+        <Review review={review} />
+      ))}
     </div>
   );
 };
