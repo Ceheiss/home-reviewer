@@ -1,5 +1,7 @@
 import "./Review.css";
 
+const options = { year: "numeric", month: "long", day: "numeric" };
+
 export const Review = ({ review }) => {
   return (
     <div className="review">
@@ -7,24 +9,36 @@ export const Review = ({ review }) => {
         <div className="score">
           <span>{review.score}/5</span>
         </div>
-        <div className="channel">{review.channel}</div>
+        <img
+          className="channel"
+          alt={`${review.channel} logo`}
+          src={`${process.env.PUBLIC_URL}/assets/${review.channel}.svg`}
+        />
       </div>
       <div className="headline">{review.headline}</div>
       <div className="comment">{review.comment}</div>
       {review.positiveFeedback ? (
-        <div className="positive-feedback">
-          <div>Logo</div>
+        <div className="feedback">
+          <img
+            alt="thumbs down image"
+            src={`${process.env.PUBLIC_URL}/assets/thumb-up.svg`}
+          />
           <div>{review.positiveFeedback}</div>
         </div>
       ) : null}
       {review.negativeFeedback ? (
-        <div className="negative-feedback">
-          <div>Logo</div>
+        <div className="feedback">
+          <img
+            alt="thumbs down image"
+            src={`${process.env.PUBLIC_URL}/assets/thumb-down.svg`}
+          />
           <div>{review.negativeFeedback}</div>
         </div>
       ) : null}
       <div className="author">{review.author}</div>
-      <div className="date">{review.publishedAt}</div>
+      <div className="date">
+        {new Date(review.publishedAt).toLocaleDateString("en-UK", options)}
+      </div>
       <br />
       <hr />
     </div>

@@ -5,7 +5,6 @@ import { PageBackground } from "../PageBackground/PageBackground";
 const App = () => {
   return (
     <div>
-      App
       <PageBackground />
       <ReviewList />
     </div>

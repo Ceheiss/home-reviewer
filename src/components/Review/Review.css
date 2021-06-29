@@ -1,6 +1,5 @@
 .review {
   width: 900px;
-  margin: 0 auto;
 }
 
 .top-section {
@@ -22,4 +21,12 @@
 
 .headline {
   font-weight: bold;
+}
+
+.feedback {
+  display: flex;
+}
+
+.feedback img {
+  margin-right: 10px;
 }

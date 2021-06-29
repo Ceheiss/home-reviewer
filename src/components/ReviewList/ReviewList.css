@@ -1,0 +1,15 @@
+.review-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px auto;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  width: 900px;
+  padding: 30px;
+}
+
+.reviews-title {
+  align-self: flex-start;
+  justify-self: center;
+}
