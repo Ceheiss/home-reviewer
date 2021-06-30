@@ -1,45 +1,56 @@
 import { connect } from "react-redux";
 import { useEffect } from "react";
-import { fetchReviews, fetchPageReviews } from "../../actions";
+import { fetchReviews, fetchPageReviews, setCurrentPage } from "../../actions";
 import "./Pagination.css";
 
 export const ReviewList = ({
-  currentReviews,
   totalReviews,
+  currentPage,
   fetchReviews,
   fetchPageReviews,
+  setCurrentPage,
 }) => {
   useEffect(() => {
     fetchReviews();
     fetchPageReviews(1);
   }, []);
 
+  // Set total of pages for pagination
   const pages = [];
-
   for (let i = 0; i < Math.ceil(totalReviews.length / 5); i++) {
     pages.push(i + 1);
   }
 
+  const onPageClick = (page) => {
+    fetchPageReviews(page);
+    setCurrentPage(page);
+  };
+
   return (
     <div className="pagination">
       {pages.map((page, i) => (
-        <button key={Math.random() * i} onClick={() => fetchPageReviews(page)}>
+        <div
+          className={`${page === currentPage ? "active" : ""}`}
+          key={Math.random() * i}
+          onClick={() => onPageClick(page)}
+        >
           {page}
-        </button>
+        </div>
       ))}
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
-  console.log("STATEEEE:", state);
-  console.log("STATEEEE REVIEWS:", state.reviews);
   return {
     totalReviews: state.totalReviews,
     currentReviews: state.currentReviews,
+    currentPage: state.currentPage,
   };
 };
 
-export default connect(mapStateToProps, { fetchReviews, fetchPageReviews })(
-  ReviewList
-);
+export default connect(mapStateToProps, {
+  fetchReviews,
+  fetchPageReviews,
+  setCurrentPage,
+})(ReviewList);

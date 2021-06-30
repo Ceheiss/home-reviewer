@@ -1,11 +1,18 @@
 .pagination {
-  border: 3px solid #333;
-  color: black;
   height: 50px;
-  width: 400px;
+  width: 430px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px auto 40px auto;
 }
 
-.pagination button {
-  border: 1px solid #333;
-  width: 100px;
+.pagination div:hover {
+  color: #ff7578;
+  cursor: pointer;
+}
+
+.active {
+  color: #0276db;
+  font-weight: bold;
 }
