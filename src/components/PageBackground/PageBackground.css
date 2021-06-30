@@ -1,4 +1,7 @@
 .container {
-  position: absolute;
-  top: 0;
+  width: 80vw;
+  height: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  background-position: center;
 }

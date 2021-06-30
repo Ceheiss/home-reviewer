@@ -7,7 +7,7 @@ export const Review = ({ review }) => {
     <div className="review">
       <div className="top-section">
         <div className="score">
-          <span>{review.score}/5</span>
+          <span>{review.score}</span>/5
         </div>
         <img
           className="channel"
@@ -35,12 +35,13 @@ export const Review = ({ review }) => {
           <div>{review.negativeFeedback}</div>
         </div>
       ) : null}
-      <div className="author">{review.author}</div>
-      <div className="date">
-        {new Date(review.publishedAt).toLocaleDateString("en-UK", options)}
+      <div className="bottom-section">
+        <div className="author">{review.author}</div>
+        <div className="date">
+          {new Date(review.publishedAt).toLocaleDateString("en-UK", options)}
+        </div>
       </div>
-      <br />
-      <hr />
+      <hr className="separation" />
     </div>
   );
 };

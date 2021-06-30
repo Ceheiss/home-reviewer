@@ -10,11 +10,17 @@ export const ReviewList = ({ reviews, fetchReviews }) => {
   }, []);
 
   return (
-    <div className="review-list">
-      <h2 className="reviews-title">{reviews.length} Reviews</h2>
-      {reviews.map((review, i) => (
-        <Review key={(Math.random() * i).toString(16)} review={review} />
-      ))}
+    <div className="review-list-container">
+      <section>
+        <p>ID: 091021</p>
+        <h1>La Casa de las Flores</h1>
+      </section>
+      <div className="review-list">
+        <h2 className="reviews-title">{reviews.length} Reviews</h2>
+        {reviews.map((review, i) => (
+          <Review key={(Math.random() * i).toString(16)} review={review} />
+        ))}
+      </div>
     </div>
   );
 };
