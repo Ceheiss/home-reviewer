@@ -38,6 +38,7 @@ export const Review = ({ review }) => {
       <div className="bottom-section">
         <div className="author">{review.author}</div>
         <div className="date">
+          Reviewed{" "}
           {new Date(review.publishedAt).toLocaleDateString("en-UK", options)}
         </div>
       </div>
