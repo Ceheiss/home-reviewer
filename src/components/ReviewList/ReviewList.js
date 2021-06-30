@@ -1,26 +1,20 @@
 import { connect } from "react-redux";
-import { useEffect } from "react";
-import { fetchReviews } from "../../actions";
 import { Review } from "../Review/Review";
 import { Spinner } from "../Spinner/Spinner";
 import "./ReviewList.css";
 
-export const ReviewList = ({ reviews, fetchReviews }) => {
-  useEffect(() => {
-    fetchReviews();
-  }, []);
-
+export const ReviewList = ({ totalReviews, currentReviews }) => {
   return (
     <div className="review-list-container">
-      {reviews.length > 0 ? (
+      {totalReviews.length > 0 ? (
         <>
           <section className="house-details">
             <p>ID: 091021</p>
             <h1>La Casa de las Flores</h1>
           </section>
           <div className="review-list">
-            <h2 className="reviews-title">{reviews.length} Reviews</h2>
-            {reviews.map((review, i) => (
+            <h2 className="reviews-title">{totalReviews.length} Reviews</h2>
+            {currentReviews.map((review, i) => (
               <Review key={(Math.random() * i).toString(16)} review={review} />
             ))}
           </div>
@@ -33,7 +27,9 @@ export const ReviewList = ({ reviews, fetchReviews }) => {
 };
 
 const mapStateToProps = (state) => {
-  return { reviews: state.reviews };
+  return {
+    totalReviews: state.totalReviews,
+    currentReviews: state.currentReviews,
+  };
 };
-
-export default connect(mapStateToProps, { fetchReviews })(ReviewList);
+export default connect(mapStateToProps)(ReviewList);

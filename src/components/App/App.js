@@ -1,5 +1,6 @@
 import "./App.css";
 import ReviewList from "../ReviewList/ReviewList";
+import Pagination from "../Pagination/Pagination";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       ></div>
       <div className="review-container">
         <ReviewList />
+        <Pagination />
       </div>
     </div>
   );
