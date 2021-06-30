@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-import { setCurrentPage } from "../actions";
 
 export const totalReviewsReducer = (state = [], action) => {
   switch (action.type) {
