@@ -25,19 +25,31 @@
 
 .headline {
   font-weight: bold;
+  font-size: 17px;
+}
+
+.comment {
+  font-size: 16px;
 }
 
 .feedback {
   display: flex;
+  font-size: 16px;
 }
 
 .feedback img {
   margin-right: 10px;
 }
 
+.author {
+  font-size: 15px;
+  font-weight: bold;
+}
+
 .date {
   margin-top: 5px;
   color: #96a4b1;
+  font-size: 13px;
 }
 
 .top-section,

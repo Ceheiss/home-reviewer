@@ -11,7 +11,7 @@ export const ReviewList = ({ reviews, fetchReviews }) => {
 
   return (
     <div className="review-list-container">
-      <section>
+      <section className="house-details">
         <p>ID: 091021</p>
         <h1>La Casa de las Flores</h1>
       </section>
