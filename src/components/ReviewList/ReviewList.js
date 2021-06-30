@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { useEffect } from "react";
 import { fetchReviews } from "../../actions";
 import { Review } from "../Review/Review";
+import { Spinner } from "../Spinner/Spinner";
 import "./ReviewList.css";
 
 export const ReviewList = ({ reviews, fetchReviews }) => {
@@ -11,16 +12,22 @@ export const ReviewList = ({ reviews, fetchReviews }) => {
 
   return (
     <div className="review-list-container">
-      <section className="house-details">
-        <p>ID: 091021</p>
-        <h1>La Casa de las Flores</h1>
-      </section>
-      <div className="review-list">
-        <h2 className="reviews-title">{reviews.length} Reviews</h2>
-        {reviews.map((review, i) => (
-          <Review key={(Math.random() * i).toString(16)} review={review} />
-        ))}
-      </div>
+      {reviews.length > 0 ? (
+        <>
+          <section className="house-details">
+            <p>ID: 091021</p>
+            <h1>La Casa de las Flores</h1>
+          </section>
+          <div className="review-list">
+            <h2 className="reviews-title">{reviews.length} Reviews</h2>
+            {reviews.map((review, i) => (
+              <Review key={(Math.random() * i).toString(16)} review={review} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <Spinner />
+      )}
     </div>
   );
 };

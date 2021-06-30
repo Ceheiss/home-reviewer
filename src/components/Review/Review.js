@@ -20,7 +20,7 @@ export const Review = ({ review }) => {
       {review.positiveFeedback ? (
         <div className="feedback">
           <img
-            alt="thumbs down image"
+            alt="thumbs down"
             src={`${process.env.PUBLIC_URL}/assets/thumb-up.svg`}
           />
           <div>{review.positiveFeedback}</div>
@@ -29,7 +29,7 @@ export const Review = ({ review }) => {
       {review.negativeFeedback ? (
         <div className="feedback">
           <img
-            alt="thumbs down image"
+            alt="thumbs down"
             src={`${process.env.PUBLIC_URL}/assets/thumb-down.svg`}
           />
           <div>{review.negativeFeedback}</div>
