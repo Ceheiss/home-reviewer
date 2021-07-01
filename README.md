@@ -1,6 +1,19 @@
-# Getting Started with Create React App
+# House Reviewer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project displays a series of reviews that are comming from an external API. The application uses React, Redux for state management, and the Redux-Thunk middleware to be able to work with asynchronous calls (performed with Axios).
+
+The application has pagination. Filtering is under process and can be found in the **filter** branch.
+
+Current branches are:
+
+- master: The deployed version
+- basic-mvp: Most basic version of the app. No pagination
+- testing: Adds some basic tests
+- pagination: Adds pagination
+
+![Demo picture](/public/house-reviewer.png)
+
+The app was made using create-react-app, so all expected organization and scripts are available
 
 ## Available Scripts
 
