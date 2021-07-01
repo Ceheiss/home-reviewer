@@ -2,6 +2,8 @@ import { connect } from "react-redux";
 import { Review } from "../Review/Review";
 import { Spinner } from "../Spinner/Spinner";
 import "./ReviewList.css";
+// delete later this import
+import { FilterForm } from "../FilterForm/FilterForm";
 
 export const ReviewList = ({ totalReviews, currentReviews }) => {
   return (
@@ -18,6 +20,7 @@ export const ReviewList = ({ totalReviews, currentReviews }) => {
               <Review key={(Math.random() * i).toString(16)} review={review} />
             ))}
           </div>
+          <FilterForm />
         </>
       ) : (
         <Spinner />
