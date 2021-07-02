@@ -20,8 +20,8 @@ export const setCurrentPage = (currentPage) => {
 };
 
 export const fetchChannelReviews = (channel) => async (dispatch) => {
-  const response = await bookiplyReviews.get(`/reviews&channel=${channel}`);
-  dispatch({ type: "FETCH_TOTAL_REVIEWS", payload: response.data });
+  const response = await bookiplyReviews.get(`/reviews?&channel=${channel}`);
+  dispatch({ type: "FETCH_TOTAL_CHANNEL_REVIEWS", payload: response.data });
 };
 
 export const fetchFilteredPageReviews =

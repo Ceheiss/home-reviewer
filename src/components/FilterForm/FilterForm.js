@@ -1,38 +1,42 @@
 import { connect } from "react-redux";
+import { getUniqueValues } from "../../helpers/helpers";
+import { fetchChannelReviews } from "../../actions";
+import "./FilterForm.css";
 
-export const FilterForm = ({ totalReviews }) => {
+const FilterForm = ({ totalReviews, fetchChannelReviews }) => {
+  const channels = getUniqueValues(totalReviews.map((e) => e.channel));
+
   return (
-    <div>
-      <form>
-        <label>Filter by Channel:</label>
-        {/* Idea is to call the action creator with the value
+    <div className="form">
+      <div>
+        <form>
+          <label>Filter by Channel:</label>
+          {/* Idea is to call the action creator with the value
           so then the API gets called with the appropiate values */}
-        <select
-          onChange={(e) =>
-            console.log("SOME CHANGE HERE: ", e.currentTarget.value)
-          }
-        >
-          {/* Need to dynamically generate options based on channels found */}
-          <option value="HOLIDU">HOLIDU</option>
-          <option value="BOOKING">BOOKING</option>
-          <option value="AIRBNB">AIRBNB</option>
-        </select>
-      </form>
-      <form>
-        <label>Order Results by Score:</label>
-        <select
-          onChange={(e) =>
-            console.log(
-              "SOME CHANGE HERE: ",
-              e.currentTarget.value,
-              totalReviews
-            )
-          }
-        >
-          <option value="desc">Best scores first</option>
-          <option value="asc">Lowest scores first</option>
-        </select>
-      </form>
+          <select onChange={(e) => fetchChannelReviews(e.currentTarget.value)}>
+            {channels.map((channel, i) => (
+              <option key={Math.random() * i * 25} value={channel}>
+                {channel.toLowerCase()}
+              </option>
+            ))}
+          </select>
+        </form>
+        <form>
+          <label>Order Results by Score:</label>
+          <select
+            onChange={(e) =>
+              console.log(
+                "SOME CHANGE HERE: ",
+                e.currentTarget.value,
+                totalReviews
+              )
+            }
+          >
+            <option value="desc">Best scores first</option>
+            <option value="asc">Lowest scores first</option>
+          </select>
+        </form>
+      </div>
     </div>
   );
 };
@@ -44,4 +48,5 @@ const mapStateToProps = (state) => {
     currentReviews: state.currentReviews,
   };
 };
-export default connect(mapStateToProps)(FilterForm);
+
+export default connect(mapStateToProps, { fetchChannelReviews })(FilterForm);

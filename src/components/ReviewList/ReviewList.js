@@ -3,7 +3,7 @@ import { Review } from "../Review/Review";
 import { Spinner } from "../Spinner/Spinner";
 import "./ReviewList.css";
 // delete later this import
-import { FilterForm } from "../FilterForm/FilterForm";
+import FilterForm from "../FilterForm/FilterForm";
 
 export const ReviewList = ({ totalReviews, currentReviews }) => {
   return (
