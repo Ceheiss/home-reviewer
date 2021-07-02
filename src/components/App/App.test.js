@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { shallow } from "enzyme";
+import App from "./App";
+import ReviewList from "../ReviewList/ReviewList";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+it("shows the Review List component", () => {
+  const wrapped = shallow(<App />);
+  expect(wrapped.find(ReviewList).length).toEqual(1);
 });
